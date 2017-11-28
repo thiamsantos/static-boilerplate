@@ -5,6 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const cssnext = require('postcss-cssnext')
+const nested = require('postcss-nested')
+const mqpacker = require('css-mqpacker')
 const cssnano = require('cssnano')
 const easyImport = require('postcss-easy-import')
 const notifier = require('node-notifier')
@@ -49,10 +51,14 @@ module.exports = {
               options: {
                 plugins: () => {
                   return [
-                    easyImport(),
+                    easyImport({
+                      root: path.resolve(__dirname, 'src')
+                    }),
+                    nested(),
                     cssnext({
                       warnForDuplicates: false
                     }),
+                    mqpacker(),
                     cssnano({
                       discardUnused: {
                         fontFace: false,
