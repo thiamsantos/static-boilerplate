@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -90,7 +91,21 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      filename: path.resolve(__dirname, 'public/index.html')
-    })
+      filename: path.resolve(__dirname, 'public/index.html'),
+      minify: {
+        html5: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeComments: true,
+        removeEmptyAttributes: true
+      }
+    }),
+    new CopyWebpackPlugin([
+      {
+        context: path.resolve(__dirname, 'src/images'),
+        from: '**/*',
+        to: path.resolve(__dirname, 'public/static/images')
+      }
+    ])
   ]
 }
