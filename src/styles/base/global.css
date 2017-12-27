@@ -1,0 +1,34 @@
+html {
+  font-size: 62.5%;
+
+  @media screen and (min-width: 600px) {
+    font-size: 65.625%;
+  }
+
+  @media screen and (min-width: 900px) {
+    font-size: 68.75%;
+  }
+}
+
+body {
+  color: var(--main-color);
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  appearance: none;
+}

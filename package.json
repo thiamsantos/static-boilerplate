@@ -5,8 +5,7 @@
   "scripts": {
     "prelint:js": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"src/**/*.js\" --write webpack.config.js",
     "lint:js": "xo --fix",
-    "lint:css": "stylelint \"src/**/*.css\"",
-    "lint": "npm run lint:css && npm run lint:js",
+    "lint": "npm run lint:js",
     "serve": "browser-sync start --server \"public\" --files \"public\" --port 3000",
     "build:prod": "webpack -p --hide-modules --progress",
     "build:watch": "webpack -w --hide-modules --colors --progress",
